@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBasicApp"
         mc:Ignorable="d"
-        Title="WpfBasicApp" Height="400" Width="600">
-    <Grid Margin="0,0,2,-1" Height="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="590">
-        <Button x:Name="btnClick" Content="Click" Margin="184,145,220,186" Click="Button_Click" Background="#FFF1F1F1"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="419,44,0,0" Height="39.96" Background="#FFF11919"/>
-
-    </Grid>
+        Title="WpfBasicApp" Height="281" Width="190">
+    <StackPanel>
+        <TextBlock Text="TextBlock" Width="150" Height="30" />
+        <Label Content="Label" Width="150" Height="30" />
+        <TextBox Text="TextBox" Width="150" Height="30" />
+        <ProgressBar Minimum="0" Maximum="100" Value="50" Width="150" Height="30"/>
+        <Slider Width="150" Height="30" Minimum="0" Maximum="100" Value="30" />
+        <PasswordBox PasswordChar="●" Password="password" Width="150" Height="30"/>
+        <ComboBox Text="Combo1" Width="150" Height="30" />
+        <Button Content="Button1" Width="150" Height="30" />
+    </StackPanel>
 </Window>

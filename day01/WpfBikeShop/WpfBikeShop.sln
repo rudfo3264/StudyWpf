@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBikeShop", "WpfBikeShop.csproj", "{46016E00-847B-4455-96DE-00FC207ADC95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46016E00-847B-4455-96DE-00FC207ADC95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46016E00-847B-4455-96DE-00FC207ADC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46016E00-847B-4455-96DE-00FC207ADC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46016E00-847B-4455-96DE-00FC207ADC95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C2CCFC9-EDC5-4593-A90D-D2C791E68DD1}
+	EndGlobalSection
+EndGlobal
