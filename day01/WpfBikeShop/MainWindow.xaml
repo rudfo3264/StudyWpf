@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame Source="/Contact.xaml/"/>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="65*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
     </Grid>
+    
 </Window>

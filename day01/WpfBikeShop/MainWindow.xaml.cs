@@ -23,6 +23,13 @@ namespace WpfBikeShop
         public MainWindow()
         {
             InitializeComponent();
+
+            InitClass();
+        }
+
+        private void InitClass()
+        {
+            Car car = new Car();
         }
     }
 }
