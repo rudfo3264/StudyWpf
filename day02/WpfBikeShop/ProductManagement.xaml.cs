@@ -31,6 +31,5 @@ namespace WpfBikeShop
         {
             DgrProducts.ItemsSource = factory.FindProducts(txtSearch.Text);
         }
-
     }
 }

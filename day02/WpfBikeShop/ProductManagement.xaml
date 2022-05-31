@@ -11,35 +11,35 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                    Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" >
             <Label Content="검색" VerticalAlignment="Center" />
-            <TextBox x:Name="txtSearch"  Width="750" Margin="10"/>
+            <TextBox x:Name="txtSearch" Width="745" Margin="10" TextChanged="txtSearch_TextChanged"/>
+
         </StackPanel>
 
         <DataGrid x:Name="DgrProducts" Grid.Row="1" Grid.Column="0" Margin="10"/>
+        <Border Grid.Row="1" Grid.Column="1" Margin="10"
+                DataContext="{Binding SelectedItem, ElementName=DgrProducts}">
+            <StackPanel Margin="10">
+                <TextBlock Text="Product details" FontWeight="Bold" FontSize="16"
+                           HorizontalAlignment="Center" Margin="10"/>
+                <TextBlock Text="Title"/>
+                <TextBox Text="{Binding Title, Mode=TwoWay}"/>
+                <TextBlock Text="Price"/>
+                <TextBox Text="{Binding Price, Mode=TwoWay}"/>
+                <TextBlock Text="Color"/>
+                <TextBox Text="{Binding Color, Mode=TwoWay}"/>
+                <Border Background="{Binding Color}" Height="10"/>
+                <TextBlock Text="Reference"/>
+                <TextBox Text="{Binding Reference, Mode=TwoWay}"/>
+            </StackPanel>
 
-        <Border Grid.Row="1" Grid.Column="1" Margin="10" BorderBrush="Black" BorderThickness="1"
-                DataContext="{Binding SelectedItem, ElementName=DgrProducts}"/>
-        <StackPanel Margin="5">
-            <TextBlock Text="제품 상세" FontWeight="Bold" FontSize="20"
-                       HorizontalAlignment="Center" Margin="10"/>
-            <TextBlock Text="Title"/>
-            <TextBox Text="{Binding Path=Title, Mode=TwoWay}"/>
-            <TextBlock Text="Price"/>
-            <TextBox Text="{Binding Path=Price, Mode=TwoWay}"/>
-            <TextBlock Text="Color"/>
-            <TextBox Text="{Binding Path=Title, Mode=TwoWay}"/>
-            <Border Background="{Binding Path= Color,Mode=TwoWay}"/>
-            <TextBlock Text="Reference"/>
-            <TextBox Text="{Binding Path=Reference, Mode=TwoWay}"/>
-        </StackPanel>
-
+        </Border>
     </Grid>
 </Page>
