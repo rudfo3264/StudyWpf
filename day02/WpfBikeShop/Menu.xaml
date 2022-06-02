@@ -17,7 +17,8 @@
         <!--부모 설정을 다 따라감 스택패널에 설정을 넣으면 하위 버튼들에 다 적용-->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0"
                     HorizontalAlignment="Center">
-            <Button x:Name="btnProducts" Width="200" Margin="10" Content="Products" FontSize="25" Click="btnProducts_Click"/>
+            <Button x:Name="btnProducts" Width="200" Margin="10" Content="Products" FontSize="25" Click="btnProducts_Click"
+                    Style="{StaticResource niceButton}"/>
             <Button x:Name="btnLiveSupport" Width="200" Margin="10" Content="Live Support" FontSize="25" Click="btnLiveSupport_Click"/>
             <Button x:Name="btnEamilSupport" Width="200" Margin="10" Content="Email Support" FontSize="25" Click="btnEamilSupport_Click"/>
         </StackPanel>
