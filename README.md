@@ -14,7 +14,11 @@ C# WPF 학습리포지터리
 - 페이지 네비게이션
 - 데이터 바인딩
 
-##Day 3일차
+## Day 3일차
 - 디자인
 - 리소스
-- 네이버 영화 앱 만들기
+- 네이버 영화 앱 만들기 (클릭)(https://github.com/rudfo3264/StudyWpf/tree/main/portfolio)
+
+## Day  4일차
+ - 네이버 영화 앱 마무리
+ - 네이버 뉴스 검색 앱
