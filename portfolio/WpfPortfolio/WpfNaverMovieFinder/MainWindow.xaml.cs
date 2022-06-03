@@ -141,7 +141,7 @@ namespace WpfNaverMovieFinder
                 Commons.ShowMessageAsync("오류", "즐겨찾기에 추가할 영화를 선택(복수선택 가능)");
                 return;
             }
-            if (IsFavorite==true)
+            if (IsFavorite==false)
             {
                 Commons.ShowMessageAsync("오류", "이미 즐겨찾기 항목에 있습니다.");
                 return;
@@ -189,12 +189,12 @@ namespace WpfNaverMovieFinder
 
         private void btnDeleteWatchList_Click(object sender, RoutedEventArgs e)
         {
-            if (IsFavorite ==false)
+            if (IsFavorite == false)
             {
                 Commons.ShowMessageAsync("오류","즐겨찾기 내용이 아니면 삭제할 수 없습니다.");
                 return;
             }
-            if (grdResult.SelectedItems.Count==0)
+            if (grdResult.SelectedItems.Count == 0)
             {
                 Commons.ShowMessageAsync("오류", "삭제할 영화를 선택하세요.");
                 return;
@@ -324,10 +324,12 @@ namespace WpfNaverMovieFinder
                 this.DataContext = list;
                 stsResult.Content = $"즐겨찾기 {list.Count}개 조회";
                 Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 조회 완료!");
+                IsFavorite = true;
             }
             catch (Exception ex)
             {
                 Commons.ShowMessageAsync("예외", $"예외 발생 : {ex}");
+                IsFavorite = false;
             }
         }
     }
