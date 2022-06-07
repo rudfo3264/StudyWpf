@@ -29,3 +29,7 @@
   - MahApps.Metro Metro UI / Modern UI
   - Newtonsoft.Json
   - Naver OpenAPI
+
+<br/>
+
+![NaverNewsSearch](https://github.com/rudfo3264/StudyWpf/blob/main/capture/NaverNewsSearch.png)
