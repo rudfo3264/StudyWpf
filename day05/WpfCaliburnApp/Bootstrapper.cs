@@ -5,9 +5,9 @@ using WpfCaliburnApp.ViewModels;
 namespace WpfCaliburnApp
 {
     /// <summary>
-    /// 시작 페이지 지정!!
+    /// 시작 윈도우를 지정하기 위해 사용! ^^7
     /// </summary>
-    public class Bootstrapper :BootstrapperBase
+    public class Bootstrapper : BootstrapperBase
     {
         public Bootstrapper()
         {

@@ -4,6 +4,5 @@ namespace WpfCaliburnApp.ViewModels
 {
     public class MainViewModel : Screen
     {
-
     }
 }
