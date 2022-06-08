@@ -24,4 +24,8 @@ C# WPF 학습리포지터리
  - 네이버 뉴스 검색 앱  [(클릭)](https://github.com/rudfo3264/StudyWpf/raw/main/capture/KakaoTalk_20220603_160559594.png?raw=true)
 
 ## Day 5일차
- -MVVM 패턴 학습
+ - MVVM 패턴 학습
+
+## Day 6일차
+ - Caliburn.Micro MVVM 학습
+ - SmartHome 앱 만들기
