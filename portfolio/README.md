@@ -33,3 +33,17 @@
 <br/>
 
 ![NaverNewsSearch](https://github.com/rudfo3264/StudyWpf/blob/main/capture/NaverNewsSearch.png)
+
+## SmartHome 모니터링앱
+ - WPF (.NET Framework 4.7.2 /C#)
+ - MahApps.Metro
+ - Caliburn.Micro
+ - LiveCharts
+ - M2Mqtt
+ - Newtonsoft.Json
+ - SQLServer DB
+
+<br/>
+
+![SmartHome Monitoring](https://github.com/rudfo3264/StudyWpf/blob/main/portfolio/WpfPortfolio/WpfSmartHomeMonitoringApp/resources/KakaoTalk_20220609_165554154.png?raw=true)
+DB모니터링 화면
