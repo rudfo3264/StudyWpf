@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2979FC62-0F83-48A9-9362-130F532FCEAF}</ProjectGuid>
+    <ProjectGuid>{FD954441-86D0-428A-936F-8580F93FAEF3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DummyDataApp</RootNamespace>
-    <AssemblyName>DummyDataApp</AssemblyName>
+    <RootNamespace>DummyDataTest</RootNamespace>
+    <AssemblyName>DummyDataTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,13 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bogus, Version=34.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bogus.34.0.2\lib\net40\Bogus.dll</HintPath>
-    </Reference>
-    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
+      <HintPath>packages\Bogus.34.0.2\lib\net40\Bogus.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,9 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SensorInfo.cs" />
+    <Compile Include="SampleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
