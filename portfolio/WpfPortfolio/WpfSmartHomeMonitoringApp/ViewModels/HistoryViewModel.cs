@@ -107,7 +107,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
 
         public HistoryViewModel()
         {
-            Commons.CONNSTRING = "Data Source=PC01;Initial Catalog=OpenApiLab;Intergrated Security=True";
+            Commons.CONNSTRING = "Data Source=PC01;Initial Catalog=OpenApiLab; Intergrated Security=True";
             InitControl();
         }
 
