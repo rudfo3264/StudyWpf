@@ -51,7 +51,7 @@ namespace DummyDataApp
                 Console.WriteLine($"접속불가 : {ex}");
                 Environment.Exit(1);    //Erorr_Access_Denied
             }
-            
+
         }
 
 
@@ -59,8 +59,44 @@ namespace DummyDataApp
         {
             MqttThread = new Thread(() => LoopPublish());
             MqttThread.Start();
+
+            //Thread thread2 = new Thread(() => LoopPublish2());
+            //thread2.Start();
+
+            //Thread thread3 = new Thread(() => LoopPublish3());
+            //thread3.Start();
+
+        }
+        private static void LoopPublish3()
+        {
+            while (true)
+            {
+                SensorInfo tempValue = SensorData.Generate();
+                tempValue.DevId = "TEST";        //testdata topic DEVID 변경
+                CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
+                Client.Publish("home/device/newdata/", Encoding.Default.GetBytes(CurrValue));
+                Console.WriteLine($"Published testdata : {CurrValue}");
+                Thread.Sleep(2000);
+            }
         }
 
+
+        //LoopPublish하고 별개 동작하는 태스크
+        private static void LoopPublish2()
+        {
+            while (true)
+            {
+                SensorInfo tempValue = SensorData.Generate();
+                tempValue.DevId = Guid.NewGuid().ToString();        //newdata topic DEVID 변경
+                CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
+                Client.Publish("home/device/newdata/", Encoding.Default.GetBytes(CurrValue));
+                Console.WriteLine($"Published newdata : {CurrValue}");
+                Thread.Sleep(1000);
+            }
+
+        }
+
+        // Main 메서드와는 별개로 동작
         private static void LoopPublish()
         {
             while (true)
@@ -68,8 +104,8 @@ namespace DummyDataApp
                 SensorInfo tempValue = SensorData.Generate();
                 CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
                 Client.Publish("home/device/fakedata/", Encoding.Default.GetBytes(CurrValue));
-                Console.WriteLine($"Published : {CurrValue}");
-                Thread.Sleep(1000);
+                Console.WriteLine($"Published fakedata: {CurrValue}");
+                Thread.Sleep(3000);
             }
         }
     }
