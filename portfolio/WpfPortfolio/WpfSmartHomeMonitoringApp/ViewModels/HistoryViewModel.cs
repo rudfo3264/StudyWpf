@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using OxyPlot;
+using OxyPlot.Legends;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using WpfSmartHomeMonitoringApp.Helpers;
 using WpfSmartHomeMonitoringApp.Models;
 
@@ -21,7 +24,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
         private string endDate;
         private string initEndDate;
         private int totalCount;
-        private PlotModel smartHomeModel;   // OxyPlot
+        private PlotModel historyModel;   // OxyPlot : 220613, CGR. SmartHome -> historyModel 변경
 
         //*StartDate
         //*Divisions
@@ -31,6 +34,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
         //InitEndDate
         //TotalCount
         //SmartHomeModel
+
 
         public BindableCollection<DivisionModel> Divisions
         {
@@ -95,13 +99,13 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
                 NotifyOfPropertyChange(() => TotalCount);
             }
         }
-        public PlotModel SmartHomeModel
+        public PlotModel HistoryModel
         {
-            get { return smartHomeModel; }
+            get { return historyModel; }
             set
             {
-                smartHomeModel = value;
-                NotifyOfPropertyChange(() => SmartHomeModel);
+                historyModel = value;
+                NotifyOfPropertyChange(() => HistoryModel);
             }
         }
 
@@ -116,10 +120,10 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
             Divisions = new BindableCollection<DivisionModel>   //콤보박스용 데이터 생성
             {
                 new DivisionModel {KeyVal = 0, DivisionVal = "--Select--" },
-                new DivisionModel {KeyVal = 1, DivisionVal = "--DINNING--" },
-                new DivisionModel {KeyVal = 2, DivisionVal = "--LIVING--" },
-                new DivisionModel {KeyVal = 3, DivisionVal = "--BED--" },
-                new DivisionModel {KeyVal = 4, DivisionVal = "--BATH--" },
+                new DivisionModel {KeyVal = 1, DivisionVal = "DINNING" },
+                new DivisionModel {KeyVal = 2, DivisionVal = "LIVING" },
+                new DivisionModel {KeyVal = 3, DivisionVal = "BED" },
+                new DivisionModel {KeyVal = 4, DivisionVal = "BATH" },
             };
             // Select를 선택해서 초기화
             SelectedDivision = Divisions.Where(v => v.DivisionVal.Contains("Select")).FirstOrDefault();
@@ -146,7 +150,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
 
             using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
             {
-                string strQuery = @"SELECT Id, CurrTime, Temp, Humid
+                string strQuery = @"SELECT Id, DevId, CurrTime, Temp, Humid
                                     FROM TblSmartHome 
                                     WHERE DevId = @DevId
                                     AND CurrTime BETWEEN @StartDate AND @EndDate                                    
@@ -164,15 +168,50 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    var i = 0;
+                    int i = 0;
+                    var l = new Legend  //범례, oxyplot.Wpf > LegendsDemo 참조
+                    {
+                        LegendBorder = OxyColors.Black,
+                        LegendBackground = OxyColor.FromAColor(200, OxyColors.White),
+                        LegendPosition = LegendPosition.RightTop,
+                        LegendPlacement = LegendPlacement.Inside
+                    };
+                    // start of chart porcess 220613
+                    PlotModel tmp = new PlotModel() { Title = $"{SelectedDivision.DivisionVal} Histoies"};  // 임시 플롯 모델
+                    LineSeries seriesTemp = new LineSeries {Color = OxyColor.FromRgb(255,100,100),
+                                                            Title = "Temperature", 
+                                                            MarkerType = MarkerType.Circle,
+                                                            };  //온도값을 라인차트로 담을 객체
+                    LineSeries seriesHumid = new LineSeries
+                    {
+                        Color = OxyColor.FromRgb(150, 150, 255),
+                        Title = "Humidity",
+                        MarkerType = MarkerType.Triangle
+                    };
+
                     while (reader.Read())
                     {
-                        var temp = reader["Temp"];
+                        var model = new SmartHomeModel();   //지우는 게 낫고 이렇게도 할 수 있다 정도
+                        model.DevId = reader["DevId"].ToString();
+                        model.CurrTime = DateTime.Parse(reader["CurrTime"].ToString());
+                        model.Temp = Convert.ToDouble(reader["Temp"]);
+                        model.Humid = Convert.ToDouble(reader["Humid"]);
+                        
+                        //var temp = reader["Temp"];
                         //Temp, Humid 차트데이터를 생성
-
+                        seriesTemp.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Temp"])));
+                        seriesHumid.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Humid"])));
                         i++;
                     }
-                    TotalCount = i;
+
+                    TotalCount = i; // 검색한 데이터 총 개수
+
+                    tmp.Series.Add(seriesTemp);
+                    tmp.Series.Add(seriesHumid);
+
+
+                    HistoryModel = tmp;
+                    // start of chart porcess 220613 추가 
                 }
                 catch (Exception ex)
                 {

@@ -45,11 +45,11 @@
                       SelectedItem="{Binding SelectedDivision}"/>
                 <Label Content="StartDate" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0"/>
                 <DatePicker x:Name="StartDate" Width="100" Text="{Binding InitStartDate}"
-                        VerticalAlignment="Center" Style="{StaticResource MahApps.Styles.DatePicker}" />
+                        VerticalAlignment="Center" />
                 <Label Content="~" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0"/>
                 <Label Content="EndDate" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0"/>
                 <DatePicker x:Name="EndDate" Width="100" Text="{Binding InitEndDate}"
-                        VerticalAlignment="Center" Style="{StaticResource MahApps.Styles.DatePicker}" />
+                        VerticalAlignment="Center" />
 
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
@@ -62,7 +62,7 @@
         </Grid>
         <Grid Grid.Row="2" Grid.Column="0" Margin="15">
             <!-- Chart  LiveChart(1000개 넘어가면 기능 안될정도로 느려짐) >> Oxyplot-->
-            <oxy:PlotView Model="{Binding SmartHomeModel}"/>
+            <oxy:PlotView Model="{Binding HistoryModel}"/>
         </Grid>
     </Grid>
 </UserControl>
