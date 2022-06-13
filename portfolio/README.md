@@ -35,6 +35,7 @@
 ![NaverNewsSearch](https://github.com/rudfo3264/StudyWpf/blob/main/capture/NaverNewsSearch.png)
 
 ## SmartHome 모니터링앱
+[이전](https://github.com/rudfo3264/StudyWpf)
  - WPF (.NET Framework 4.7.2 /C#)
  - MahApps.Metro
  - Caliburn.Micro
@@ -47,3 +48,9 @@
 
 ![SmartHome Monitoring](https://github.com/rudfo3264/StudyWpf/blob/main/portfolio/WpfPortfolio/WpfSmartHomeMonitoringApp/resources/KakaoTalk_20220609_165554154.png?raw=true)
 DB모니터링 화면
+
+![RealTimeView](https://github.com/rudfo3264/StudyWpf/blob/main/capture/KakaoTalk_20220613_162911912.png?raw=true)
+실시간 센서 디스플레이
+
+![Historyview](https://github.com/rudfo3264/StudyWpf/blob/main/capture/KakaoTalk_20220613_162911912_01.png?raw=true)
+센서값 시각화 및 프로그램 정보창
