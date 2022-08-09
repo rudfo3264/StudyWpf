@@ -21,7 +21,7 @@ C# WPF 학습리포지터리
 
 ## Day  4일차
  - 네이버 영화 앱 마무리
- - 네이버 뉴스 검색 앱  [(클릭)](https://github.com/rudfo3264/StudyWpf/raw/main/capture/KakaoTalk_20220603_160559594.png?raw=true)
+ - 네이버 뉴스 검색 앱  [(클릭)](https://github.com/rudfo3264/StudyWpf/tree/main/portfolio#naver-%EB%89%B4%EC%8A%A4-%EA%B2%80%EC%83%89)
 
 ## Day 5일차
  - MVVM 패턴 학습
